@@ -37,6 +37,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
@@ -115,6 +125,20 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
+          {/* Close button at top of menu panel */}
+          <div className="navbar__mobile-header">
+            <Link to="/" className="navbar__logo" aria-label="FITPULSE Home" onClick={() => setMobileOpen(false)}>
+              <Zap size={22} className="navbar__logo-icon" />
+              <span className="navbar__logo-text">FITPULSE</span>
+            </Link>
+            <button
+              className="navbar__mobile-close"
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
           <nav>
             {navLinks.map((link) => (
               <div key={link.label}>

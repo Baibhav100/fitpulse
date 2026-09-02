@@ -152,10 +152,40 @@
   right: 0;
   bottom: 0;
   background: var(--color-bg);
-  z-index: calc(var(--z-nav) - 1);
+  z-index: calc(var(--z-nav) + 10);
   overflow-y: auto;
-  padding-top: 72px;
   animation: fadeIn 0.2s ease both;
+}
+
+/* Header row inside the mobile panel (logo + close btn) */
+.navbar__mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  z-index: 1;
+}
+
+.navbar__mobile-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: 0.4rem;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.navbar__mobile-close:hover {
+  background: var(--color-border);
+  color: var(--accent);
 }
 
 .navbar__mobile-link {

@@ -61,10 +61,14 @@ export default function Hero() {
         </div>
 
         {/* Scroll cue */}
-        <div className="hero__scroll-cue animate-fade-up delay-5" aria-hidden="true">
+        <button
+          className="hero__scroll-cue animate-fade-up delay-5"
+          onClick={() => document.getElementById('explore')?.scrollIntoView({ behavior: 'smooth' })}
+          aria-label="Scroll to explore"
+        >
           <ChevronRight size={16} style={{ transform: 'rotate(90deg)' }} />
           <span>Scroll to explore</span>
-        </div>
+        </button>
       </div>
     </section>
   );

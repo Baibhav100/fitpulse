@@ -129,6 +129,16 @@
   gap: var(--space-2);
   font-size: 0.8125rem;
   color: #ffffff;
+  /* button reset */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.hero__scroll-cue:hover {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {

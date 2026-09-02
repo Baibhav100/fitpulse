@@ -5,7 +5,7 @@ import './ShopByGoal.css';
 
 export default function ShopByGoal() {
   return (
-    <section className="section shop-by-goal" aria-labelledby="goal-heading">
+    <section id="explore" className="section shop-by-goal" aria-labelledby="goal-heading">
       <div className="container">
         <div className="section-header">
           <div className="section-label">Shop by Goal</div>

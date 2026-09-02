@@ -194,10 +194,14 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="footer__bottom">
-        <div className="container">
+        <div className="container footer__bottom-inner">
           <p className="text-caption text-muted">
             © {new Date().getFullYear()} FITPULSE. All rights reserved. As an Amazon Associate, FITPULSE earns from qualifying purchases. Product information is
             based on publicly available specifications, customer feedback, and comparative research.
+          </p>
+          <p className="footer__dev-credit">
+            Crafted with <span className="footer__dev-heart" aria-hidden="true">♥</span> by{' '}
+            <span className="footer__dev-name">Baibhav Rajkumar</span>
           </p>
         </div>
       </div>

@@ -196,7 +196,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <p className="text-caption text-muted">
-            © {new Date().getFullYear()} FITPULSE. All rights reserved. Product information is
+            © {new Date().getFullYear()} FITPULSE. All rights reserved. As an Amazon Associate, FITPULSE earns from qualifying purchases. Product information is
             based on publicly available specifications, customer feedback, and comparative research.
           </p>
         </div>

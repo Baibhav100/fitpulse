@@ -33,9 +33,9 @@ export default function BestPicksPage() {
         {/* Category quick nav */}
         <div className="best-picks-nav">
           {bestPicksCategories.map((cat) => (
-            <a key={cat.id} href={`#${cat.id}`} className="tag">
+            <Link key={cat.id} to={`/shop?category=${cat.id}`} className="tag">
               {cat.icon} {cat.label}
-            </a>
+            </Link>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 import ProductCard from '../components/ui/ProductCard';
 import { products } from '../data/products';
@@ -6,12 +7,21 @@ import { shopCategories, priceFilters, experienceFilters } from '../data/categor
 import './ShopPage.css';
 
 export default function ShopPage() {
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get('category') || 'all';
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [activePrice, setActivePrice] = useState('all');
   const [activeExp, setActiveExp] = useState('all');
   const [compareList, setCompareList] = useState([]);
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat) {
+      setActiveCategory(cat);
+    }
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -20,7 +30,14 @@ export default function ShopPage() {
         p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.shortDescription.toLowerCase().includes(search.toLowerCase()) ||
         p.brand.toLowerCase().includes(search.toLowerCase());
-      const matchCat = activeCategory === 'all' || p.category === activeCategory;
+      const matchCat =
+        activeCategory === 'all' ||
+        p.category === activeCategory ||
+        p.subcategory === activeCategory ||
+        p.tags?.includes(activeCategory) ||
+        p.goals?.includes(activeCategory) ||
+        (activeCategory === 'gym-accessories' && (p.category === 'accessories' || p.tags?.includes('accessories'))) ||
+        (activeCategory === 'accessories' && (p.subcategory === 'gym-accessories' || p.tags?.includes('gym-accessories')));
       const matchPrice = activePrice === 'all' || p.priceRange?.toLowerCase() === activePrice;
       const matchExp =
         activeExp === 'all' || p.experience?.includes(activeExp);

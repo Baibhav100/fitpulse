@@ -1,0 +1,8 @@
+/* TrendingProducts Section — uses global grid utilities */
+.trending-section {
+  background: var(--color-bg);
+}
+
+.trending-disclosure {
+  font-size: 0.8125rem;
+}

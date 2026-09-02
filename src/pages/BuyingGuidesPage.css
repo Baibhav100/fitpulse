@@ -1,0 +1,120 @@
+/* Buying Guides Page */
+.guides-page { padding-top: 80px; min-height: 100vh; }
+.guides-hero {
+  padding-block: var(--space-12) var(--space-10);
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.guides-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.guide-article {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.guide-article:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.guide-article__image-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.guide-article__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.guide-article:hover .guide-article__image { transform: scale(1.05); }
+
+.guide-article__body {
+  padding: var(--space-6) var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.guide-article__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.guide-article__read-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.guide-article__title-link {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+}
+
+.guide-article__title-link:hover { color: var(--accent); }
+
+.guide-article__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Product chips */
+.guide-article__products {
+  padding: var(--space-4);
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.guide-article__products-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.guide-product-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.guide-product-chip__img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.guide-product-chip__name {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.guide-product-chip__cta { margin-left: auto; flex-shrink: 0; }
+
+.guide-article__btn { align-self: flex-start; }
+
+@media (max-width: 768px) {
+  .guide-article { grid-template-columns: 1fr; }
+  .guide-article__image-wrap { height: 200px; }
+}

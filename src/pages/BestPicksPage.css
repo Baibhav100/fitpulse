@@ -1,0 +1,46 @@
+/* Best Picks Page */
+.best-picks-page { padding-top: 80px; min-height: 100vh; }
+.best-picks-hero {
+  padding-block: var(--space-12) var(--space-10);
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.best-picks-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-12);
+}
+
+.ranking-section { margin-bottom: var(--space-4); }
+
+.ranking-header {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.ranking-icon { font-size: 2rem; flex-shrink: 0; }
+
+.ranking-title { margin-bottom: var(--space-1); }
+
+.ranking-product-wrap { position: relative; }
+
+.ranking-badge {
+  position: absolute;
+  top: -10px;
+  left: var(--space-4);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.25rem 0.625rem;
+  background: var(--accent);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

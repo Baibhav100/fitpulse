@@ -1,0 +1,205 @@
+/* Shop Page */
+.shop-page {
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+.shop-hero {
+  padding-block: var(--space-12) var(--space-10);
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.shop-search-wrap {
+  position: relative;
+  max-width: 560px;
+  margin-top: var(--space-6);
+}
+
+.shop-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.shop-search {
+  width: 100%;
+  padding: 0.875rem 3rem 0.875rem 2.875rem;
+  background: var(--color-bg-elevated);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.shop-search:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(184,244,0,0.1);
+}
+
+.shop-search::placeholder { color: var(--color-text-muted); }
+
+.shop-search-clear {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  transition: color var(--transition-fast);
+}
+
+.shop-search-clear:hover { color: var(--color-text-primary); }
+
+/* Layout */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-10);
+  padding-block: var(--space-10);
+  align-items: start;
+}
+
+/* Sidebar */
+.shop-filters {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.shop-filters__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Filter Group */
+.filter-group {}
+.filter-group__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.filter-group__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Shop Bar */
+.shop-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.shop-filter-toggle {
+  display: none;
+  position: relative;
+}
+
+.shop-filter-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Empty */
+.shop-empty {
+  text-align: center;
+  padding: var(--space-20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+/* Compare Bar */
+.compare-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-border-light);
+  padding-block: var(--space-3);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+  animation: fadeInUp 0.3s ease both;
+}
+
+.compare-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.compare-bar__names {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.compare-bar__remove {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.compare-bar__remove:hover { color: var(--color-error); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .shop-layout { grid-template-columns: 1fr; }
+  .shop-filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-overlay);
+    border-radius: 0;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+  }
+  .shop-filters--open {
+    transform: translateX(0);
+  }
+  .shop-filter-toggle { display: flex; }
+}

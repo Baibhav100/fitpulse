@@ -1,0 +1,38 @@
+/* Comparison Section */
+.comparison-section { background: var(--color-bg); }
+
+.comparison-table { min-width: 1000px; }
+
+.comparison-table__name {
+  font-weight: 700 !important;
+  color: var(--color-text-primary) !important;
+  white-space: nowrap;
+}
+
+.comparison-table__verdict {
+  font-size: 0.875rem !important;
+  max-width: 200px;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Ensure CTA column is never clipped */
+.comparison-table td:last-child,
+.comparison-table th:last-child {
+  white-space: nowrap;
+  text-align: right;
+  padding-right: var(--space-5);
+}
+
+.comparison-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Trending section (no extra css needed — uses grid-auto-fill-sm from global) */
+.trending-section { background: var(--color-bg); }
